@@ -74,7 +74,7 @@ Mình dừng lại đọc kỹ hint của đề. Bình thường một challenge
 
 Để hiểu bài này, cần hiểu cơ chế bên trong của LLM. Đây không phải kiến thức nâng cao — đây là nền tảng để nhìn ra ý tưởng của người ra đề.
 
-![Kiến trúc Transformer và cơ chế logits](/images/write-ups/grodno-ctf-slop/llm_architecture.png)
+![Kiến trúc Transformer và cơ chế logits](images/llm_architecture.png)
 
 **Token là gì?** LLM không xử lý ký tự hay từ — nó xử lý **token**, là các đơn vị văn bản được chia theo từ điển riêng của model. Tokenizer của Qwen chia text thành các mảnh như sau:
 
@@ -120,7 +120,7 @@ Cụ thể hơn, mình hình dung quá trình encode như sau:
 2. Tại mỗi bước, đọc rank của token thật trong cover text
 3. Dùng dãy rank để decode từ một context biết trước — đây chính là lúc flag format `grodno{` có ích
 
-![Luồng encode (trái) và decode (phải) của AI steganography](/images/write-ups/grodno-ctf-slop/ai_stego_encode_decode.png)
+![Luồng encode (trái) và decode (phải) của AI steganography](images/ai_stego_encode_decode.png)
 
 ---
 
@@ -257,7 +257,7 @@ Tất cả đều thất bại với cùng dãy rank `[41, 62, 1959, ...]`. Mìn
 >
 > Kết luận: mình phải mô phỏng đúng vòng generation: eval prompt → đọc logits → lấy rank của token[0] → feed token[0] → đọc logits mới → lấy rank của token[1] → feed token[1] → tiếp tục.
 
-![So sánh batch evaluation (sai) và sequential evaluation (đúng)](/images/write-ups/grodno-ctf-slop/batch_vs_sequential.png)
+![So sánh batch evaluation (sai) và sequential evaluation (đúng)](images/batch_vs_sequential.png)
 
 Mình chuyển sang sequential:
 
@@ -363,7 +363,7 @@ match: True
 flag: grodno{stego_can_be_even_like_this}
 ```
 
-![Toàn bộ pipeline từ cover text đến flag](/images/write-ups/grodno-ctf-slop/full_pipeline.png)
+![Toàn bộ pipeline từ cover text đến flag](images/full_pipeline.png)
 
 Giải thích dòng `decoded pieces`: 8 rank decode thành 8 token, mỗi token là một subword:
 
