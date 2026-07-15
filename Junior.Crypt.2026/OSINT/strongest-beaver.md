@@ -12,6 +12,7 @@
 ## 1. Phân tích đề bài 
 Chúng ta có những manh mối như sau:
 > **weber:** Là web pentester
+
 > **occupied high places in the ranking of various information security platforms:** Tức là người này có xếp hạng cao ở các nền tảng về bảo mật (HTB, THM, Root-me, ...) 
 
 Tới đây thì chúng ta chỉ có được vài manh mối này, những thông tin bất khả thi để tìm 1 người nào đó. Nhưng nếu chúng ta để tên bài thi là **Strongest Beaver** thì ta có thể thu hẹp phạm vi tìm kiếm nhanh chóng
